@@ -1,0 +1,57 @@
+let articles = [
+  { id: 1, titre: "Bague solitaire or 18K", categorie: "bague", prix: 4200, stock: 3, date: "2026-09-12" },
+  { id: 2, titre: "Collier perles", categorie: "collier", prix: 1850, stock: 0, date: "2026-10-03" },
+  { id: 3, titre: "Bracelet argent", categorie: "bracelet", prix: 650, stock: 12, date: "2026-08-21" },
+  { id: 4, titre: "Bague alliance", categorie: "bague", prix: 2900, stock: 5, date: "2026-11-01" },
+  { id: 5, titre: "Boucles d'oreilles émeraude", categorie: "boucles", prix: 5600, stock: 1, date: "2026-07-15" },
+  { id: 6, titre: "Collier or jaune", categorie: "collier", prix: 7300, stock: 2, date: "2026-10-28" },
+  { id: 7, titre: "Bracelet jonc or", categorie: "bracelet", prix: 3400, stock: 0, date: "2026-09-30" },
+  { id: 8, titre: "Bague saphir", categorie: "bague", prix: 6100, stock: 0, date: "2026-11-10" },
+  { id: 9, titre: "Collier main de Fatma", categorie: "collier", prix: 980, stock: 7, date: "2026-08-05" },
+  { id: 10, titre: "Créoles argent", categorie: "boucles", prix: 720, stock: 9, date: "2026-10-18" }
+];
+
+// 1 sort
+
+//1.1  sort by price 
+
+const byPrice = [...articles].sort((a, b) => a.prix - b.prix) ;
+
+console.log(byPrice[0].titre);
+
+//1.2 sort by name
+
+const byName = [...articles].sort((a, b) => a.titre.localeCompare(b.titre)) ;
+
+console.log(byName[0].titre);
+
+//1.3 sort by date
+
+const byDate = [...articles].sort((a, b) => a.date.localeCompare(b.date)) ;
+
+console.log(byDate[0].titre);
+
+
+// 2 reduce price*stock
+
+// let itemp = item.prix * item.stock
+// let totale = articles.reduce((acc, itestock.prix *itestock.stock) => 
+//   acc+itemp.prix, 0)
+// console.log(totale);
+
+let totale = articles.reduce ((acc, item) => 
+  acc + (item.prix * item.stock),0);
+
+console.log(totale);
+
+// 3 reduce categories
+
+// let categ = articles.reduce ((acc, item) =>
+//  acc + (item.))
+
+let categories = articles.reduce((acc, item) => {
+    acc[item.categorie] = (acc[item.categorie] || 0) + 1;
+    return acc; }, {});
+
+console.log(categories);
+console.log(articles[0].titre);
